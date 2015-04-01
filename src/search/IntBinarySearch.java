@@ -4,13 +4,13 @@ public class IntBinarySearch
 {
     public static int find(int[] list, int value)
     {
-        return find(list, value, 0, list.length);
+        return find(list, value, 0, list.length-1);
     }
 
     private static int find(int[] list, int value, int low, int high)
     {
         if(list.length == 0 || low > high)
-            return -(high+low)/2 - 1;
+            return -low - 1;
         int mid = (low + high)/2;
         if(list[mid] == value)
             return mid;

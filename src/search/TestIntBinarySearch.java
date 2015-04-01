@@ -1,6 +1,7 @@
+package search;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
-
 import java.util.Random;
 import java.util.Arrays;
 public class TestIntBinarySearch
@@ -29,8 +30,8 @@ public class TestIntBinarySearch
         assertEquals(-3, IntBinarySearch.find(dup, 0));
         int[] trip = new int[] { 1, 1, 1 };
         assertEquals(-1, IntBinarySearch.find(trip, -1));
-        assertEquals(0, IntBinarySearch.find(trip, 1));
-        assertEquals(-4, IntBinarySearch.find(trip, -2));
+        assertEquals(1, IntBinarySearch.find(trip, 1));
+        assertEquals(-4, IntBinarySearch.find(trip, 2));
     }
     
     @Test
@@ -40,14 +41,14 @@ public class TestIntBinarySearch
         assertEquals(-1, IntBinarySearch.find(list, -6));
         assertEquals(0, IntBinarySearch.find(list, -5));
         assertEquals(-2, IntBinarySearch.find(list, -4));
-        assertEquals(0, IntBinarySearch.find(list, -3));
+        assertEquals(1, IntBinarySearch.find(list, -3));
         assertEquals(-3, IntBinarySearch.find(list, -2));
         assertEquals(-3, IntBinarySearch.find(list, -1));
-        assertEquals(0, IntBinarySearch.find(list, 0));
+        assertEquals(2, IntBinarySearch.find(list, 0));
         assertEquals(-4, IntBinarySearch.find(list, 1));
-        assertEquals(0, IntBinarySearch.find(list, 2));
+        assertEquals(3, IntBinarySearch.find(list, 2));
         assertEquals(-5, IntBinarySearch.find(list, 3));
-        assertEquals(0, IntBinarySearch.find(list, 4));
+        assertEquals(4, IntBinarySearch.find(list, 4));
         assertEquals(-6, IntBinarySearch.find(list, 5));
     }   
 
