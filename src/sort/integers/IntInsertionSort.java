@@ -7,10 +7,12 @@ public int[] sort(int[] list)
 {
 for(int i = 1; i < list.length; i++)
 {
-for(int j = i; j >= 0 && list[j] > list[i]; j--)
+int j = i-1;
+for( ; j >= 0 && list[j] > list[i]; j--)
 {
-    swap(list, i, j);
+    // Do nothing here
 }
+swap(list, i, j);
 }
 return list;
 }
@@ -23,10 +25,12 @@ public int[][] sortSteps(int[] list)
 
     for(int i = 1; i < list.length; i++)
     {
-        for(int j = i; j >= 0 && list[j] > list[i]; j--)
+        int j = i-1;
+        for( ; j >= 0 && list[j] > list[i]; j--)
         {
-            swap(list, i, j);
+            // Do nothing here
         }
+        swap(list, i, j);
         res[i] =  list.clone(); // only for primitives
     }
     return res;
