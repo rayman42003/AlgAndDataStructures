@@ -3,55 +3,54 @@ package sort.integers;
 public class IntInsertionSort extends IntISort 
 {
     @Override
-public int[] sort(int[] list)
-{
-for(int i = 1; i < list.length; i++)
-{
-int j = i-1;
-for( ; j >= 0 && list[j] > list[i]; j--)
-{
-    // Do nothing here
-}
-swap(list, i, j);
-}
-return list;
-}
-
-@Override
-public int[][] sortSteps(int[] list)
-{
-    int[][] res = new int[10][];
-    res[0] = list;
-
-    for(int i = 1; i < list.length; i++)
+    public int[] sort(int[] list)
     {
-        int j = i-1;
-        for( ; j >= 0 && list[j] > list[i]; j--)
+        for(int i = 1; i < list.length; i++)
         {
-            // Do nothing here
+            int j = i;
+            for( ; j > 0 && list[j-1] > list[j]; j--)
+            {
+                swap(list, j, j-1); 
+            }
         }
-        swap(list, i, j);
-        res[i] =  list.clone(); // only for primitives
+        return list;
     }
-    return res;
-}
-            
-@Override
-public String name()
-{
-    return "Selection Sort";
+
+    @Override
+    public int[][] sortSteps(int[] list)
+    {
+        int[][] res = new int[10][];
+        res[0] = list.clone();
+
+        for(int i = 1; i < list.length; i++)
+        {
+            int j = i;
+            for( ; j > 0 && list[j-1] < list[j]; j--)
+            {
+                swap(list, j, j-1);
+            }
+
+            res[i] =  list.clone(); // only for primitives
+        }
+        return res;
+    }
+
+    @Override
+    public String name()
+    {
+        return "Selection Sort";
+    }
+
+    private boolean swap(int[] list, int a, int b)
+    {
+        if(a >= 0 && a < list.length && b >= 0 && b < list.length)
+        {
+            int temp = list[a];
+            list[a] = list[b];
+            list[b] = temp;
+            return true;
+        }
+        return false;
+    }
 }
 
-private boolean swap(int[] list, int a, int b)
-{
-    if(a >= 0 && a < list.length && b >= 0 && b < list.length)
-    {
-        int temp = list[a];
-        list[a] = list[b];
-        list[b] = temp;
-        return true;
-    }
-    return false;
-}
-}
-        
