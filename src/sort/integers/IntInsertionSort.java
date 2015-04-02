@@ -18,7 +18,7 @@ return list;
 @Override
 public int[][] sortSteps(int[] list)
 {
-    int[][] res = new int[10];
+    int[][] res = new int[10][];
     res[0] = list;
 
     for(int i = 1; i < list.length; i++)
@@ -29,7 +29,7 @@ public int[][] sortSteps(int[] list)
         }
         res[i] =  list.clone(); // only for primitives
     }
-    return list;
+    return res;
 }
             
 @Override
@@ -44,7 +44,7 @@ private boolean swap(int[] list, int a, int b)
     {
         int temp = list[a];
         list[a] = list[b];
-        list[b] = list[a];
+        list[b] = temp;
         return true;
     }
     return false;
