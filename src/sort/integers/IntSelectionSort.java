@@ -1,6 +1,6 @@
 package sort.integers;
 
-public IntSelectionSort extends IntISort
+public class IntSelectionSort extends IntISort
 {
     @Override
     public int[] sort(int[] list)
@@ -40,7 +40,7 @@ public IntSelectionSort extends IntISort
     }
 
     @Override
-    public String name
+    public String name()
     {
         return "Selection Sort";
     }
