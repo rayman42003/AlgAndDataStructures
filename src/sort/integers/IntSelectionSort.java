@@ -33,7 +33,7 @@ public class IntSelectionSort extends IntISort
             }
             swap(list, i, minPos);
             if(size(res) < i)
-            expandRow(res);
+                expandRow(res);
             res[i+1]  = list.clone();
         }
         return res;
@@ -50,10 +50,10 @@ public class IntSelectionSort extends IntISort
         if(a >= 0 && a < list.length && b >= 0 && b < list.length)
         {
             int temp = list[a];
-        list[a] = list[b];
-        list[b] = temp;
-        return true;
-    }
-    return false;
+            list[a] = list[b];
+            list[b] = temp;
+            return true;
+        }
+        return false;
     }
 }

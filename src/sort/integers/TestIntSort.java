@@ -13,7 +13,7 @@ public class TestIntSort {
     @Before
     public void init()
     {
-        sorter = new IntInsertionSort();
+        sorter = new IntSelectionSort();
     }
 
 
