@@ -13,7 +13,7 @@ public class TestIntSort {
     @Before
     public void init()
     {
-        sorter = new IntMergeSort();
+        sorter = new IntQuickSort();
     }
 
 
@@ -89,11 +89,15 @@ public class TestIntSort {
     public void TestReverse()
     {
         int[] simple = { 5, 4, 3, 2, 1 };
+        System.out.println(IntISort.printArray(sorter.sortSteps(simple.clone())));
         checkSort(createNewSorted(simple), sorter.sort(simple));
         int[] zero = { 4, 3, 2, 1, 0 };
+        System.out.println(IntISort.printArray(sorter.sortSteps(zero.clone())));
         checkSort(createNewSorted(zero), sorter.sort(zero));
         int[] negative = { 2, 1, 0, -1, -2 };
+        System.out.println(IntISort.printArray(sorter.sortSteps(negative.clone())));
         checkSort(createNewSorted(negative), sorter.sort(negative));
+        
     }
 
     @Test
