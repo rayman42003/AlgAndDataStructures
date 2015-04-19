@@ -11,33 +11,37 @@ public class IntQuickSort extends IntISort
 
     private int[] quicksort(int[] list, int low, int high)
     {
-        if(low > high)
+        if(low >= high)
             return list;
         int pos = partition(list, low, high);
         quicksort(list, low, pos-1);
         quicksort(list, pos+1, high);
+        return list;
     }
 
-    private int paritition(int[] list, int low, int high)
+    private int partition(int[] list, int low, int high)
     {
-        Random r = new Random();
-        int pivot = r.nextInt(low, high);   
+        int pivot = choosePivot(low, high);
         int value = list[pivot];
         swap(list, pivot, high);
-        int left = low;
-        int right = high-1;
-        while(left <= right)
+        int pivotPos = low;
+        for(int i = low; i <= high-1; i++)
         {
-            while(list[left] < value && left <= right)
-                left++;
-            while(list[right] > value && left <= right)
-                right--;
-            swap(list, left, right);    
+            if(list[i] < value)
+            {
+                swap(list, i, pivotPos++);
+            }
         }
-        list[left] = pivot;
-        return pivot;
+        swap(list, pivotPos, high);
+        return pivotPos;
     }
-
+    
+    private int choosePivot(int low, int high)
+    {
+        Random r = new Random();
+        return r.nextInt(high - low + 1) + low;
+    }
+    
     private boolean swap(int[] list, int a, int b)
     {
         if(a >= 0 && a < list.length && b >= 0 && a < list.length)
@@ -53,12 +57,12 @@ public class IntQuickSort extends IntISort
     @Override
     public int[][] sortSteps(int[] list)
     {
-        int[][] res = new res[10][];
+        int[][] res = new int[10][];
         res[0] = list.clone();
         res[1] = sort(list);
         return res;
     }
-
+    
     @Override
     public String name()
     {
